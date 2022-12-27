@@ -1,4 +1,4 @@
-# FarmingAssistant.github.io
+# Farming Assistant
 
 A Web Application for farmers to recommend the best suitable crops for growing based on their soil type and environmental factors using Machine Learning.
 
