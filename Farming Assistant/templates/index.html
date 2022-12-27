@@ -1,0 +1,135 @@
+{% extends 'base.html'%}
+{% block content  %}
+{% load static %}
+    <header class="slider-main">
+        <div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-ride="carousel">
+            <ol class="carousel-indicators">
+               <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+               <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+               <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner" role="listbox">
+               <!-- Slide One - Set the background image for this slide in the line below -->
+               <div class="carousel-item active" style="background-image: url('{% static '/images/caro.jpg' %}')">
+                  <div class="carousel-caption d-none d-md-block">
+                     <h3>Welcome to Farming Assistant</h3>
+                     <p>A New Agri Perspective</p>
+                  </div>
+               </div>
+               <!-- Slide Two - Set the background image for this slide in the line below -->
+               <div class="carousel-item" style="background-image: url('{% static '/images/caro-ferti.jpg' %}')">
+                  <div class="carousel-caption d-none d-md-block">
+                     <h3>Fertilizer Recommendation</h3>
+                     <p>A New Agri Perspective</p>
+                  </div>
+               </div>
+               <!-- Slide Three - Set the background image for this slide in the line below -->
+               <div class="carousel-item" style="background-image: url('{% static '/images/caro-weather.jpg' %}')">
+                  <div class="carousel-caption d-none d-md-block">
+                     <h3>Weather Prediction</h3>
+                     <p>A New Agri Perspective</p>
+                  </div>
+               </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+				<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+				<span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+				<span class="carousel-control-next-icon" aria-hidden="true"></span>
+				<span class="sr-only">Next</span>
+            </a>
+        </div>
+    </header>
+    <!-- Page Content -->
+    <div class="container">
+        <div class="services-bar">
+            <h1 class="my-4">Our Best Services </h1>
+            <!-- Services Section -->
+            <div class="row">
+               <div class="col-lg-4 mb-4">
+                  <div class="card h-100">
+                     <h4 class="card-header">Crop Prediction</h4>
+                     <div class="card-img">
+                        <img class="img-fluid" src="{% static 'images/card1.jpg' %}" alt="" />
+                     </div>
+                     <div class="card-body">
+                        <p class="card-text">
+                           CROP<br>
+                           Recommendation about the type of crops to be cultivated which is best suited for the respective conditions</p>
+                     </div>
+                     <div class="card-footer">
+                        <a href="crop" class="btn btn-primary">Learn More</a>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-lg-4 mb-4">
+                  <div class="card h-100">
+                     <h4 class="card-header">Weather</h4>
+                     <div class="card-img">
+                        <img class="img-fluid" src="{% static 'images/card3.jpg' %}" alt="" />
+                     </div>
+                     <div class="card-body">
+                        <p class="card-text">WEATHER<br>
+                           Predicts the weather of next few days for farmer to take necessary actions.</p>
+                     </div>
+                     <div class="card-footer">
+                        <a href="weather" class="btn btn-primary">Learn More</a>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-lg-4 mb-4">
+                  <div class="card h-100">
+                     <h4 class="card-header">Fertilizer Recommendation</h4>
+                     <div class="card-img">
+                        <img class="img-fluid" src="{% static 'images/card2.jpg' %}" alt="" />
+                     </div>
+                     <div class="card-body">
+                        <p class="card-text">
+                           FERTILIZER<br>
+                           Recommendation about the type of fertilizer best suited for the particular soil and the recommended crop</p>
+                     </div>
+                     <div class="card-footer">
+                        <a href="fertilizer" class="btn btn-primary">Learn More</a>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- About Section -->
+        <div class="about-main">
+            <div class="row">
+               <div class="col-lg-6">
+                  <h2>Welcome to Farming Assistant</h2>
+                  <p>Improving Agriculture, Improving Lives, Cultivating Crops to Make Farmers Increase Profit.</p>
+                  <h5>Our smart approach</h5>
+                  <ul>
+                     <li>Crop Prediction using Machine Learning.</li>
+                     <li>Crop Recommendation using State & District.</li>
+                     <li>Fertilizer Recommendation.</li>
+                     <li>Weather Prediction of next few days.</li>
+                  </ul>
+                  <p>We use machine learning technologies to help you guide through the entire farming process. Make informed decisions to understand the demographics of your area and keep them healthy for a super awesome successful yield.</p>
+               </div>
+               <div class="col-lg-6">
+                  <img class="img-fluid rounded" src="images/about-img.jpg" alt="" />
+               </div>
+            </div>
+            <!-- /.row -->
+        </div>
+
+        <hr>
+        <!-- Get In Touch Now Section -->
+        <div class="row mb-4">
+            <div class="col-md-8">
+               <p>In case of any issue or want more information you can contact our customer care service.</p>
+            </div>
+            <div class="col-md-4">
+               <a class="btn btn-lg btn-secondary btn-block" href="contact">Get In Touch Now</a>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+    <!--footer starts from here-->
+    {% endblock %}

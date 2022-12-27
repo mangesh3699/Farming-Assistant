@@ -1,0 +1,281 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<title>Crop Recommendation</title>
+	<script src="{% static 'js/district.js' %}"></script>
+	<!-- Bootstrap core CSS -->
+	<link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+	<!-- Fontawesome CSS -->
+	<link href="{% static 'css/all.css' %}" rel="stylesheet">
+	<!-- Custom styles for this template -->
+	<link href="{% static 'css/style.css' %}" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-light top-nav fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="/mysite">
+            <img src="{% static 'images/farming-logo.png' %}" alt="logo" />
+            </a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="fas fa-bars"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+               <ul class="navbar-nav ml-auto">
+                  <li class="nav-item">
+                     <a class="nav-link" href="/mysite">Home</a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link" href="/mysite/crop">Crop Prediction</a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link" href="#">Crop Recommendation</a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link" href="/mysite/fertilizer/">FertilizerS</a>
+                  </li>
+                  <!--  <li class="nav-item dropdown">
+                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPortfolio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                     Portfolio
+                     </a>
+                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPortfolio">
+                        <a class="dropdown-item" href="portfolio-1-col.html">1 Column Portfolio</a>
+                        <a class="dropdown-item" href="portfolio-2-col.html">2 Column Portfolio</a>
+                        <a class="dropdown-item" href="portfolio-3-col.html">3 Column Portfolio</a>
+                        <a class="dropdown-item" href="portfolio-4-col.html">4 Column Portfolio</a>
+                        <a class="dropdown-item" href="portfolio-item.html">Single Portfolio Item</a>
+                     </div>
+                  </li>
+                  <li class="nav-item dropdown">
+                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownBlog" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                     Blog
+                     </a>
+                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownBlog">
+                        <a class="dropdown-item" href="blog-home-1.html">Blog Home 1</a>
+                        <a class="dropdown-item" href="blog-home-2.html">Blog Home 2</a>
+                        <a class="dropdown-item" href="blog-post.html">Blog Post</a>
+                     </div>
+                  </li>
+                  <li class="nav-item dropdown">
+                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownBlog" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                     Pages
+                     </a>
+                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownBlog">
+                        <a class="dropdown-item" href="faq.html">FAQ</a>
+                        <a class="dropdown-item" href="404.html">404</a>
+                        <a class="dropdown-item" href="pricing.html">Pricing Table</a>
+                     </div>
+                  </li> -->
+                  <li class="nav-item">
+                     <a class="nav-link" href="/mysite/weather/">Weather</a>
+                  </li>
+               </ul>
+            </div>
+        </div>
+    </nav>
+	<style>
+	
+		.full-title{
+		   padding: 80px 0px;
+		   background: url("{% static '/images/all-title-bg1.jpg' %} ") no-repeat center;
+		   position: relative;
+}
+
+   </style>
+	<!-- full Title -->
+	<div class="full-title">
+		<div class="container">
+			<!-- Page Heading/Breadcrumbs -->
+			<h1 class="mt-4 mb-3">Crop Recommendation
+				<small>Based on District</small>
+			</h1>
+		</div>
+	</div>
+    <!-- Page Content -->
+    <div class="container">
+		<div class="breadcrumb-main">
+			<ol class="breadcrumb">
+				<li class="breadcrumb-item">
+					<a href="/mysite">Home</a>
+				</li>
+				<li class="breadcrumb-item active">About Crop Recommendation based on District</li>
+			</ol>
+		</div>
+		<!-- About Content -->
+		<style>
+
+			html body {
+			  background-color: rgb(206, 206, 228);
+		
+			  
+		  }
+		
+		  
+		</style>
+		<!--Form Section-->
+		<br /><br />
+		<h2 style="text-align: center; margin: 0px; color: black">
+		  <b>Find out the most suitable crop to grow in your farm</b>
+		</h2>
+		<br />
+		
+		<div
+		  style="
+			width: 350px;
+			height: 50rem;
+			margin: 0px auto;
+			color: black;
+			border-radius: 25px;
+			padding: 10px 10px;
+		  "
+		>
+		
+		  <form method="POST" action="crop_result2/">
+			{% csrf_token %}
+			<div class="form-group">
+			  <label for="State" style="font-size: 17px "><b>State</b></label>
+			  <select
+				onchange="print_district('state', this.selectedIndex);"
+				id="sts"
+				name="stt"
+				class="form-control"
+				style="font-weight: bold; color: black;"
+				
+				required
+			  ></select>
+			  <br />
+			  <label for="district" style="font-size: 17px"><b>District</b></label>
+			  <select
+				id="state"
+				class="form-control"
+				name="district"
+				style="font-weight: bold; color: black;"
+				required
+			  ></select>
+			  <script language="javascript">
+				print_state("sts");
+			  </script>
+			</div>
+			<div class="form-group">
+				<label for="Season" style="font-size: 17px"><b>Season</b></label>
+				<select id="Season"
+				       class="form-control"
+				        name="Season"
+						style="font-weight: bold; color: black;"
+						required>
+				  <option value="" disabled selected hidden>Choose Season</option>
+				  <option value="Autumn     ">Autumn</option>
+				  <option value="Kharif     ">Kharif</option>
+				  <option value="Rabi       ">Rabi</option>
+				  <option value="Summer     ">Summer</option>
+				  <option value="Whole Year ">Whole Year </option>
+				</select>
+			  </div>
+			<div class="d-flex justify-content-center">
+			  <button
+				type="submit"
+				class="btn btn-info"
+				style="color: black; font-weight: bold; width: 130px; height:50px; border-radius:12px; font-size: 21px;"
+			  >
+				Predict
+			  </button>
+			</div>
+		  </form>
+		</div>
+		
+		
+
+		<!-- Team Members -->
+	
+
+    <!--footer starts from here-->
+	<footer class="footer">
+        <div class="container bottom_border">
+            <div class="row">
+               <div class="col-lg-3 col-md-6 col-sm-6 col">
+					<h5 class="headin5_amrc col_white_amrc pt2">Find us</h5>
+					<!--headin5_amrc-->
+					<p class="mb10">You can reache to us by sending email or using following contact number and adress of our office is as follows</p>
+					<p><i class="fa fa-location-arrow"></i> RAIT sector 7 nerul</p>
+					<p><i class="fa fa-phone"></i> +91-1234567890 </p>
+					<p><i class="fa fa fa-envelope"></i> info@example.com </p>
+               </div>
+               <div class="col-lg-3 col-md-6 col-sm-6 col">
+					<h5 class="headin5_amrc col_white_amrc pt2">Follow us</h5>
+					<!--headin5_amrc ends here-->
+					<ul class="footer_ul2_amrc">
+						<li>
+							<a href="#"><i class="fab fa-twitter fleft padding-right"></i> </a>
+							<p>Instagram <a href="#">https://www.lipsum.com/</a></p>
+						</li>
+						<li>
+							<a href="#"><i class="fab fa-twitter fleft padding-right"></i> </a>
+							<p>Twitter  <br><a href="#">https://www.lipsum.com/</a></p>
+						</li>
+						<li>
+							<a href="#"><i class="fab fa-twitter fleft padding-right"></i> </a>
+							<p>Youtube<br><a href="#">https://www.lipsum.com/</a></p>
+						</li>
+					</ul>
+					<!--footer_ul2_amrc ends here-->
+				</div>
+				<div class="col-lg-3 col-md-6 col-sm-6">
+					<h5 class="headin5_amrc col_white_amrc pt2">Quick links</h5>
+					<!--headin5_amrc-->
+					<ul class="footer_ul_amrc">
+						<li><a href="#">Home</a></li>
+						<li><a href="#">Our Team </a></li>
+						<li><a href="#">About Us</a></li>
+						<li><a href="#">Our Services</a></li>
+						<li><a href="#">Get In Touch</a></li>
+					</ul>
+					<!--footer_ul_amrc ends here-->
+				</div>
+				<div class="col-lg-3 col-md-6 col-sm-6 ">
+					<h5 class="headin5_amrc col_white_amrc pt2">Our Team</h5>
+					<!--headin5_amrc-->
+					<ul class="footer_ul_amrc">
+						<li class="media">
+							<div class="media-body">
+								<p>Amitkumar Jaiswar</p>
+							</div>
+						</li>
+						<li class="media">
+							<div class="media-body">
+								<p>Mangesh Deshmukh</p>
+							</div>
+						</li>
+						<li class="media">
+							<div class="media-body">
+								<p>Omkar Joshi</p>
+							</div>
+						</li>
+					</ul>
+					<!--footer_ul_amrc ends here-->
+				</div>
+			</div>
+		</div>
+        <div class="container">
+           
+            <ul class="social_footer_ul">
+				<li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+				<li><a href="#"><i class="fab fa-twitter"></i></a></li>
+				<li><a href="#"><i class="fab fa-linkedin"></i></a></li>
+				<li><a href="#"><i class="fab fa-instagram"></i></a></li>
+            </ul>
+            <!--social_footer_ul ends here-->
+        </div>
+    </footer>
+
+<!-- Bootstrap core JavaScript -->
+
+<script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+<script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+</body>
+</html>
